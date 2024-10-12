@@ -1,19 +1,18 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
+using System;
 
 namespace SKGLTest
 {
-    [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
+        [Test]
         public void MachineCodeTest()
         {
             SKGL.Generate gen = new SKGL.Generate();
             string a= gen.MachineCode.ToString();
         }
 
-        [TestMethod]
+        [Test]
         public void CreateAndValidateSimple()
         {
             SKGL.Generate gen = new SKGL.Generate();
@@ -23,12 +22,12 @@ namespace SKGLTest
 
             val.Key = a;
             
-            Assert.IsTrue(val.IsValid == true);
-            Assert.IsTrue(val.IsExpired ==false);
-            Assert.IsTrue(val.SetTime == 30);
+            Assert.That( val.IsValid, Is.True );
+            Assert.That( val.IsExpired, Is.False );
+            Assert.That( val.SetTime, Is.EqualTo(30));
 
         }
-        [TestMethod]
+        [Test]
         public void CreateAndValidateA()
         {
 
@@ -37,12 +36,12 @@ namespace SKGLTest
             val.Key = "MXNBF-ITLDZ-WPOBY-UCHQW";
             val.secretPhase = "567";
 
-            Assert.IsTrue(val.IsValid == true);
-            Assert.IsTrue(val.IsExpired == true);
-            Assert.IsTrue(val.SetTime == 30);
+            Assert.That(val.IsValid, Is.True);
+            Assert.That(val.IsExpired, Is.True);
+            Assert.That(val.SetTime, Is.EqualTo(30));
 
         }
-        [TestMethod]
+        [Test]
         public void CreateAndValidateC()
         {
             SKGL.SerialKeyConfiguration skm = new SKGL.SerialKeyConfiguration();
@@ -58,16 +57,16 @@ namespace SKGLTest
             val.Key = a;
             val.secretPhase = "567";
 
-            Assert.IsTrue(val.IsValid == true);
-            Assert.IsTrue(val.IsExpired == false);
-            Assert.IsTrue(val.SetTime == 37);
-            Assert.IsTrue(val.Features[0] == true);
-            Assert.IsTrue(val.Features[1] == false);
+            Assert.That( val.IsValid, Is.True );
+            Assert.That( val.IsExpired, Is.False );
+            Assert.That( val.SetTime, Is.EqualTo( 37 ) );
+            Assert.That(val.Features[0], Is.True);
+            Assert.That( val.Features[1], Is.False);
 
         }
 
 
-        [TestMethod]
+        [Test]
         public void CreateAndValidateCJ()
         {
 
@@ -79,15 +78,15 @@ namespace SKGLTest
 
             int timeLeft = val.DaysLeft;
 
-            Assert.IsTrue(val.IsValid == true);
-            Assert.IsTrue(val.IsExpired == true);
-            Assert.IsTrue(val.SetTime == 30);
-            Assert.IsTrue(val.Features[0] == true);
+            Assert.That(val.IsValid, Is.True);
+            Assert.That(val.IsExpired, Is.True );
+            Assert.That( val.SetTime, Is.EqualTo( 30 ) );
+            Assert.That(val.Features[0], Is.True );
             //Assert.IsTrue(val.Features[1] == false);
 
         }
 
-        [TestMethod]
+        [Test]
         public void CreateAndValidateAM()
         {
             SKGL.Generate gen = new SKGL.Generate();
@@ -97,9 +96,9 @@ namespace SKGLTest
 
             ValidateAKey.Key = a;
 
-            Assert.IsTrue(ValidateAKey.IsValid == true);
-            Assert.IsTrue(ValidateAKey.IsExpired == false);
-            Assert.IsTrue(ValidateAKey.SetTime == 30);
+            Assert.That(ValidateAKey.IsValid, Is.True );
+            Assert.That(ValidateAKey.IsExpired, Is.False);
+            Assert.That(ValidateAKey.SetTime, Is.EqualTo(30));
 
             if (ValidateAKey.IsValid)
             {

@@ -8,14 +8,13 @@ using System.Diagnostics;
 using System.Text;
 using System.Management;
 using System.Security;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace SKGLTest
 {
-    [TestClass]
     public class SKGLPlusTest
     {
-        [TestMethod]
+        [Test]
         public void test()
         {
             SKGL.Plus.Generate gen = new SKGL.Plus.Generate();

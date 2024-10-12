@@ -1,13 +1,13 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Security.Cryptography;
+
+using NUnit.Framework;
 
 namespace SKGLTest
 {
-    [TestClass]
     public class UnitTest2
     {
-        [TestMethod]
+        [Test]
         public void TestMethod1()
         {
             string stringSignature;

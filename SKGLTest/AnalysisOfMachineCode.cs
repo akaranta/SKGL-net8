@@ -8,14 +8,14 @@ using System.Diagnostics;
 using System.Text;
 using System.Management;
 using System.Security;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+using NUnit.Framework;
 
 namespace SKGLTest
 {
-    [TestClass]
     public class AnalysisOfMachineCode
     {
-        [TestMethod]
+        [Test]
         public void test()
         {
             Debug.WriteLine(getMachineCode());

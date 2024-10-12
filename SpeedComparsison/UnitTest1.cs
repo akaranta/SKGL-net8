@@ -1,13 +1,12 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
+using System;
 
 
 namespace SpeedComparsison
 {
-    [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
+        [Test]
         public void CreateAndValidateSimple()
         {
             SKGL.Generate gen = new SKGL.Generate();
@@ -17,9 +16,9 @@ namespace SpeedComparsison
 
             val.Key = a;
 
-            Assert.IsTrue(val.IsValid == true);
-            Assert.IsTrue(val.IsExpired == false);
-            Assert.IsTrue(val.SetTime == 30);
+            Assert.That(val.IsValid, Is.True);
+            Assert.That(val.IsExpired, Is.False);
+            Assert.That(val.SetTime, Is.EqualTo(30));
 
         }
     }
